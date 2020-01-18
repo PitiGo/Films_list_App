@@ -1,0 +1,92 @@
+{
+  "@@last_modified": "2020-01-16T18:02:54.084266",
+  "title": "Movies App",
+  "@title": {
+    "description": "Movies",
+    "type": "text",
+    "placeholders": {}
+  },
+  "popular": "Popular",
+  "@popular": {
+    "description": "Pupular",
+    "type": "text",
+    "placeholders": {}
+  },
+  "discover": "Discover",
+  "@discover": {
+    "description": "discover",
+    "type": "text",
+    "placeholders": {}
+  },
+  "mylist": "My List",
+  "@mylist": {
+    "description": "My list",
+    "type": "text",
+    "placeholders": {}
+  },
+  "search": "Search",
+  "@search": {
+    "description": "Search",
+    "type": "text",
+    "placeholders": {}
+  },
+  "watch": "To watch",
+  "@watch": {
+    "description": "To watch",
+    "type": "text",
+    "placeholders": {}
+  },
+  "viewed": "Watched",
+  "@viewed": {
+    "description": "already watched",
+    "type": "text",
+    "placeholders": {}
+  },
+  "notviewed": "Movie not seen yet",
+  "@notviewed": {
+    "description": "Movie not seen yet",
+    "type": "text",
+    "placeholders": {}
+  },
+  "sharemovie": "Share movie",
+  "@sharemovie": {
+    "description": "Share movie",
+    "type": "text",
+    "placeholders": {}
+  },
+  "watchthismovie": "Watch this movie!",
+  "@watchthismovie": {
+    "description": "Watch this movie",
+    "type": "text",
+    "placeholders": {}
+  },
+  "movieadded": "Movie added to your list",
+  "@movieadded": {
+    "description": "Movie added to your list",
+    "type": "text",
+    "placeholders": {}
+  },
+  "moviealready": "The movie is already on your list",
+  "@moviealready": {
+    "description": "The movie is already on your list",
+    "type": "text",
+    "placeholders": {}
+  },
+  "towatchagain": "Add to watch again",
+  "@towatchagain": {
+    "description": "already watched",
+    "type": "text",
+    "placeholders": {}
+  },
+  "movieremoved": "Movie removed",
+  "@movieremoved": {
+    "description": "Movie removed",
+    "type": "text",
+    "placeholders": {}
+  },
+  "list": "List",
+  "@list": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

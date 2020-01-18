@@ -1,0 +1,92 @@
+{
+  "@@last_modified": "2020-01-16T18:02:54.084266",
+  "title": "Peliculas App",
+  "@title": {
+    "description": "Movies",
+    "type": "text",
+    "placeholders": {}
+  },
+  "popular": "Popular",
+  "@popular": {
+    "description": "Pupular",
+    "type": "text",
+    "placeholders": {}
+  },
+  "discover": "Descubrir",
+  "@discover": {
+    "description": "discover",
+    "type": "text",
+    "placeholders": {}
+  },
+  "mylist": "Mi Lista",
+  "@mylist": {
+    "description": "My list",
+    "type": "text",
+    "placeholders": {}
+  },
+  "search": "Buscar",
+  "@search": {
+    "description": "Search",
+    "type": "text",
+    "placeholders": {}
+  },
+  "watch": "Ver",
+  "@watch": {
+    "description": "To watch",
+    "type": "text",
+    "placeholders": {}
+  },
+  "viewed": "Vistas",
+  "@viewed": {
+    "description": "already watched",
+    "type": "text",
+    "placeholders": {}
+  },
+  "notviewed": "Pelicula aún no vista",
+  "@notviewed": {
+    "description": "Movie not seen yet",
+    "type": "text",
+    "placeholders": {}
+  },
+  "sharemovie": "Compartir pelicula",
+  "@sharemovie": {
+    "description": "Share movie",
+    "type": "text",
+    "placeholders": {}
+  },
+  "watchthismovie": "Mira esta pelicula!",
+  "@watchthismovie": {
+    "description": "Watch this movie",
+    "type": "text",
+    "placeholders": {}
+  },
+  "movieadded": "Pelicula añadida a tu lista",
+  "@movieadded": {
+    "description": "Movie added to your list",
+    "type": "text",
+    "placeholders": {}
+  },
+  "moviealready": "La pelicula ya está en tu lista",
+  "@moviealready": {
+    "description": "The movie is already on your list",
+    "type": "text",
+    "placeholders": {}
+  },
+  "towatchagain": "Añadir para ver otra vez",
+  "@towatchagain": {
+    "description": "already watched",
+    "type": "text",
+    "placeholders": {}
+  },
+  "movieremoved": "Pelicula eliminada",
+  "@movieremoved": {
+    "description": "Movie removed",
+    "type": "text",
+    "placeholders": {}
+  },
+  "list": "Lista",
+  "@list": {
+    "type": "text",
+    "placeholders": {}
+  }
+}

@@ -1,0 +1,92 @@
+{
+  "@@last_modified": "2020-01-16T18:02:54.084266",
+  "title": "Movies App",
+  "@title": {
+    "description": "Movies",
+    "type": "text",
+    "placeholders": {}
+  },
+  "popular": "Populares",
+  "@popular": {
+    "description": "Pupular",
+    "type": "text",
+    "placeholders": {}
+  },
+  "discover": "Para descobrir",
+  "@discover": {
+    "description": "discover",
+    "type": "text",
+    "placeholders": {}
+  },
+  "mylist": "Minha lista",
+  "@mylist": {
+    "description": "My list",
+    "type": "text",
+    "placeholders": {}
+  },
+  "search": "Pesquisar",
+  "@search": {
+    "description": "Search",
+    "type": "text",
+    "placeholders": {}
+  },
+  "watch": "Veja",
+  "@watch": {
+    "description": "To watch",
+    "type": "text",
+    "placeholders": {}
+  },
+  "viewed": "ja vi",
+  "@viewed": {
+    "description": "already watched",
+    "type": "text",
+    "placeholders": {}
+  },
+  "notviewed": "Filme ainda não visto",
+  "@notviewed": {
+    "description": "Movie not seen yet",
+    "type": "text",
+    "placeholders": {}
+  },
+  "sharemovie": "Compartilhar filme",
+  "@sharemovie": {
+    "description": "Share movie",
+    "type": "text",
+    "placeholders": {}
+  },
+  "watchthismovie": "Assista a este filme!",
+  "@watchthismovie": {
+    "description": "Watch this movie",
+    "type": "text",
+    "placeholders": {}
+  },
+  "movieadded": "Filme adicionado à sua lista",
+  "@movieadded": {
+    "description": "Movie added to your list",
+    "type": "text",
+    "placeholders": {}
+  },
+  "moviealready": "O filme já está na sua lista",
+  "@moviealready": {
+    "description": "The movie is already on your list",
+    "type": "text",
+    "placeholders": {}
+  },
+  "towatchagain": "Adicione novamente para ver",
+  "@towatchagain": {
+    "description": "already watched",
+    "type": "text",
+    "placeholders": {}
+  },
+  "movieremoved": "Filme removido",
+  "@movieremoved": {
+    "description": "Movie removed",
+    "type": "text",
+    "placeholders": {}
+  },
+  "list": "List",
+  "@list": {
+    "type": "text",
+    "placeholders": {}
+  }
+}
