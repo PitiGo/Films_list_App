@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:peliculas/locale/locales.dart';
-import 'package:peliculas/src/models/pelicula_model.dart';
-import 'package:peliculas/src/providers/db_provider.dart';
+import 'package:My_Films/locale/locales.dart';
+import 'package:My_Films/src/models/pelicula_model.dart';
+import 'package:My_Films/src/providers/db_provider.dart';
 
 class ListaPage extends StatefulWidget {
   @override

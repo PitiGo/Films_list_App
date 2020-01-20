@@ -1,4 +1,4 @@
-package com.example.peliculas
+package com.example.My_Films
 
 import android.os.Bundle
 

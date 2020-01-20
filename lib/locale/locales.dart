@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:peliculas/l10n/messages_all.dart';
+import 'package:My_Films/l10n/messages_all.dart';
 import 'package:intl/intl.dart';
 
 class AppLocalizations {
@@ -27,7 +27,7 @@ class AppLocalizations {
   }
 
   String get popular {
-    return Intl.message('Popular', name: 'popular', desc: 'Pupular');
+    return Intl.message('Popular', name: 'popular', desc: 'Popular');
   }
 
   String get discover {

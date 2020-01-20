@@ -31,7 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "popular" : MessageLookupByLibrary.simpleMessage("Beliebt"),
     "search" : MessageLookupByLibrary.simpleMessage("Suchen nach"),
     "sharemovie" : MessageLookupByLibrary.simpleMessage("Film teilen"),
-    "title" : MessageLookupByLibrary.simpleMessage("Movies App"),
+    "title" : MessageLookupByLibrary.simpleMessage("My Films"),
     "towatchagain" : MessageLookupByLibrary.simpleMessage("Zum Ansehen erneut hinzufügen"),
     "viewed" : MessageLookupByLibrary.simpleMessage("schon gesehen"),
     "watch" : MessageLookupByLibrary.simpleMessage("schauen"),

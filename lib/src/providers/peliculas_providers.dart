@@ -1,11 +1,11 @@
-import 'package:peliculas/src/models/actores_model.dart';
-import 'package:peliculas/src/models/pelicula_model.dart';
+import 'package:My_Films/src/models/actores_model.dart';
+import 'package:My_Films/src/models/pelicula_model.dart';
 import 'package:http/http.dart' as http;
 
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:peliculas/src/models/videos_model.dart';
+import 'package:My_Films/src/models/videos_model.dart';
 
 class PeliculasProvider {
   String _apiKey = 'e8686676734d36b9c2b28f181906511b';

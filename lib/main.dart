@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:peliculas/locale/locales.dart';
-import 'package:peliculas/src/pages/home_page.dart';
-import 'package:peliculas/src/pages/lista_page.dart';
-import 'package:peliculas/src/pages/pelicula_detalle.dart';
-import 'package:peliculas/src/pages/video_player_page.dart';
+import 'package:My_Films/locale/locales.dart';
+import 'package:My_Films/src/pages/home_page.dart';
+import 'package:My_Films/src/pages/lista_page.dart';
+import 'package:My_Films/src/pages/pelicula_detalle.dart';
+import 'package:My_Films/src/pages/video_player_page.dart';
 
 void main() => runApp(MyApp());
 
@@ -30,7 +30,7 @@ class MyApp extends StatelessWidget {
         // ... other locales the app supports
       ],
       debugShowCheckedModeBanner: false,
-      title: 'Movies app',
+      title: 'My Films',
       onGenerateTitle: (BuildContext context) =>AppLocalizations.of(context).title,
       initialRoute: '/',
       routes: {
