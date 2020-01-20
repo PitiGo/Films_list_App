@@ -23,7 +23,7 @@ class AppLocalizations {
 // The movie is already on your list
 
   String get title {
-    return Intl.message('Movies App', name: 'title', desc: 'Movies');
+    return Intl.message('My films', name: 'title', desc: 'Movies');
   }
 
   String get popular {
