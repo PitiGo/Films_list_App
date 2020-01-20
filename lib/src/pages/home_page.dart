@@ -17,9 +17,12 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+
+    
     Locale myLocale = Localizations.localeOf(context);
+
     peliculasProvider.language = myLocale.languageCode;
-    print(peliculasProvider.language);
+   
     peliculasProvider.getPopulares();
 
     return Scaffold(
