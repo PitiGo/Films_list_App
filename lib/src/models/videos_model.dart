@@ -8,7 +8,7 @@ class Video {
     }
 
     jsonList.forEach((item) {
-      print('Entra');
+    
       final video = Result.fromJson(item);
       videos.add(video);
     });

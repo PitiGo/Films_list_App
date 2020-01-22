@@ -1,5 +1,8 @@
+import 'dart:io';
+
 import 'package:My_Films/src/models/actores_model.dart';
 import 'package:My_Films/src/models/pelicula_model.dart';
+import 'package:My_Films/src/providers/exceptions.dart';
 import 'package:http/http.dart' as http;
 
 import 'dart:async';
@@ -105,15 +108,40 @@ class PeliculasProvider {
   // }
 
   Future<List<Pelicula>> _procesarRespuesta(Uri url) async {
+
+
+    try{
     
     final respuesta = await http.get(url);
     
     final decodedDAta = json.decode(respuesta.body);
-
     final peliculas = new Peliculas.fromJsonList(decodedDAta['results']);
-
     return peliculas.items;
+
+    } on SocketException {
+      throw FetchDataException('No Internet connection');
+    }
+
   }
+
+//    dynamic _returnResponse(http.Response response) {
+//   switch (response.statusCode) {
+//     case 200:
+//       var responseJson = json.decode(response.body.toString());
+//       print(responseJson);
+//       return responseJson;
+//     case 400:
+//       throw BadRequestException(response.body.toString());
+//     case 401:
+//     case 403:
+//       throw UnauthorisedException(response.body.toString());
+//     case 500:
+//     default:
+//       throw FetchDataException(
+//           'Error occured while Communication with Server with StatusCode : ${response.statusCode}');
+//   }
+  
+// }
 
   Future<List<Pelicula>> buscarPelicula(String query) async {
     final url = Uri.https(_url, '3/search/movie',
@@ -121,4 +149,6 @@ class PeliculasProvider {
 
     return await _procesarRespuesta(url);
   }
+
+ 
 }

@@ -35,8 +35,11 @@ class PeliculaDetalle extends StatelessWidget {
 
   Widget _crearAppbar(Pelicula pelicula) {
     return SliverAppBar(
+      iconTheme: IconThemeData(
+        color: Colors.white, //change your color here
+      ),
       elevation: 2.0,
-      backgroundColor: Colors.indigoAccent,
+      backgroundColor: Colors.yellow,
       expandedHeight: 200.0,
       floating: false,
       pinned: true,
@@ -176,7 +179,6 @@ class PeliculaDetalle extends StatelessWidget {
   }
 
   Widget _crearBottomNavigationBar(BuildContext context) {
-    
     final peliProvider = new PeliculasProvider();
     Locale myLocale = Localizations.localeOf(context);
     peliProvider.language = myLocale.languageCode;
@@ -188,7 +190,7 @@ class PeliculaDetalle extends StatelessWidget {
             icon: Icon(
               Icons.play_arrow,
               size: 40.0,
-              color: Colors.blue,
+              color: Theme.of(context).primaryColor,
             ),
             onPressed: () async {
               print('Play youtube');
@@ -229,7 +231,7 @@ class PeliculaDetalle extends StatelessWidget {
             icon: Icon(
               Icons.add,
               size: 40,
-              color: Colors.blue,
+              color: Theme.of(context).primaryColor,
             ),
             onPressed: () {
               addMovieDB(context);
@@ -242,10 +244,15 @@ class PeliculaDetalle extends StatelessWidget {
             icon: Icon(
               Icons.share,
               size: 40.0,
-              color: Colors.blue,
+              color: Theme.of(context).primaryColor,
             ),
             onPressed: () {
-              Share.share(AppLocalizations.of(context).sharemovie,
+              Pelicula pelicula = ModalRoute.of(context).settings.arguments;
+
+              Share.share(
+                  AppLocalizations.of(context).watchthismovie +
+                      ' \n ' +
+                      pelicula.getPosterImg(),
                   subject: AppLocalizations.of(context).watchthismovie);
             },
           ),

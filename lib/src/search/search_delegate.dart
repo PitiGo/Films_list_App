@@ -58,7 +58,7 @@ class DataSearch extends SearchDelegate {
       child: Container(
         height: 100.0,
         width: 100.0,
-        color: Colors.blueAccent,
+        color: Theme.of(context).primaryColor,
         child: Text(seleccion),
       ),
     );
@@ -67,6 +67,12 @@ class DataSearch extends SearchDelegate {
   @override
   Widget buildSuggestions(BuildContext context) {
     // Son las sugerencias que aparecen cuando la persona escriba
+
+    Locale myLocale = Localizations.localeOf(context);
+
+    peliculasProvider.language = myLocale.languageCode;
+
+    
 
     if (query.isEmpty) return Container();
 

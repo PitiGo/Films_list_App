@@ -1,9 +1,9 @@
+import 'package:My_Films/responsive/base_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:My_Films/src/models/pelicula_model.dart';
 
 class MovieHorizontal extends StatelessWidget {
   final List<dynamic> peliculas;
-  
 
   final Function siguientePagina;
 
@@ -14,16 +14,13 @@ class MovieHorizontal extends StatelessWidget {
     viewportFraction: 0.33,
   );
 
- 
- 
   @override
   Widget build(BuildContext context) {
-    final _screenSize = MediaQuery.of(context).size;
+    // final _screenSize = MediaQuery.of(context).size;
+    
 
     _pageController.addListener(() {
       // _pageController.position.minScrollExtent = 0;
-
-     
 
       if (_pageController.position.pixels >=
           _pageController.position.maxScrollExtent - 200) {
@@ -31,26 +28,29 @@ class MovieHorizontal extends StatelessWidget {
       }
     });
 
+    return BaseWidget(builder: (context, sizingInfo) {
+     
+      bool portrait = (sizingInfo.orientation == Orientation.portrait);
 
-    return Container(
-      height: _screenSize.height * 0.27,
-      child: PageView.builder(
-          scrollDirection: Axis.horizontal,
-          physics: PageScrollPhysics(),
-          controller: _pageController,
-          pageSnapping: false,
-          itemCount: peliculas.length,
-          itemBuilder: (context, index) => _tarjeta(context, peliculas[index])
+      return Container(
+        height: portrait?sizingInfo.screenSize.height * 0.27:sizingInfo.screenSize.width * 0.27,
+        child: PageView.builder(
+            scrollDirection: Axis.horizontal,
+            physics: PageScrollPhysics(),
+            controller: _pageController,
+            pageSnapping: false,
+            itemCount: peliculas.length,
+            itemBuilder: (context, index) => _tarjeta(context, peliculas[index])
 
-          // children: _tarjetas(context),
-          ),
-    );
+            // children: _tarjetas(context),
+            ),
+      );
+    });
   }
 
   Widget _tarjeta(BuildContext context, Pelicula pelicula) {
     pelicula.uniqueId = '${pelicula.id}-poster';
     final tarjeta = Container(
-
       margin: EdgeInsets.only(right: 15.0),
       child: Column(
         mainAxisSize: MainAxisSize.min,
@@ -81,8 +81,6 @@ class MovieHorizontal extends StatelessWidget {
         ],
       ),
     );
-
-    
 
     return GestureDetector(
       onTap: () {

@@ -15,16 +15,16 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
 
   @override
   void initState() {
-    
     print('videoID:${widget.videoId}');
 
     _controller = YoutubePlayerController(
       initialVideoId: widget.videoId,
       flags: YoutubePlayerFlags(
-          mute: false,
-          autoPlay: true,
-          forceHideAnnotation: true,
-          controlsVisibleAtStart: true),
+        mute: false,
+        autoPlay: true,
+        forceHideAnnotation: true,
+        controlsVisibleAtStart: true,
+      ),
     );
     super.initState();
   }
@@ -35,6 +35,10 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
       controller: _controller,
       showVideoProgressIndicator: true,
 
+      bottomActions: [
+        CurrentPosition(),
+        ProgressBar(isExpanded: true),
+      ],
       //  videoProgressIndicatorColor: Colors.amber,
       progressColors: ProgressBarColors(
         playedColor: Colors.amber,

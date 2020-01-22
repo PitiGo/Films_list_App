@@ -17,21 +17,19 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
-
-    
     Locale myLocale = Localizations.localeOf(context);
 
     peliculasProvider.language = myLocale.languageCode;
-   
+
     peliculasProvider.getPopulares();
 
     return Scaffold(
       bottomNavigationBar: _crearBottomNavigationBar(),
       appBar: currentindex == 0
           ? AppBar(
-              centerTitle: false,
+              centerTitle: true,
               title: Text(AppLocalizations.of(context).title),
-              backgroundColor: Colors.indigoAccent,
+              backgroundColor: Theme.of(context).primaryColor,
               actions: <Widget>[
                 IconButton(
                   icon: Icon(Icons.search),
@@ -53,6 +51,17 @@ class _HomePageState extends State<HomePage> {
     return FutureBuilder(
       future: peliculasProvider.getEnCines(),
       builder: (BuildContext context, AsyncSnapshot<List> snapshot) {
+        if (snapshot.hasError) {
+          return Container(
+            height: 400,
+            child: Center(
+              child: Text(
+                snapshot.error.toString(),
+                style: TextStyle(color: Colors.red, fontSize: 20,fontWeight: FontWeight.bold),
+              ),
+            ),
+          );
+        }
         if (snapshot.hasData) {
           return CardSwiper(
             peliculas: snapshot.data,
@@ -91,6 +100,17 @@ class _HomePageState extends State<HomePage> {
             stream: peliculasProvider.popularesStream,
             initialData: [],
             builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Container(
+                  height: 400,
+                  child: Center(
+                    child: Text(
+                      snapshot.error.toString(),
+                      style: TextStyle(color: Colors.red, fontSize: 20,fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                );
+              }
               if (snapshot.hasData) {
                 return MovieHorizontal(
                   siguientePagina: peliculasProvider.getPopulares,
