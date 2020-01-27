@@ -111,7 +111,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                 );
               }
-              if (snapshot.hasData) {
+              else if (snapshot.hasData) {
                 return MovieHorizontal(
                   siguientePagina: peliculasProvider.getPopulares,
                   peliculas: snapshot.data,

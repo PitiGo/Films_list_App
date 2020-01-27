@@ -17,7 +17,7 @@ class PeliculaDetalle extends StatelessWidget {
       bottomNavigationBar: _crearBottomNavigationBar(context),
       body: CustomScrollView(
         slivers: <Widget>[
-          _crearAppbar(pelicula),
+          _crearAppbar(pelicula,context),
           SliverList(
             delegate: SliverChildListDelegate([
               SizedBox(
@@ -32,14 +32,13 @@ class PeliculaDetalle extends StatelessWidget {
       ),
     );
   }
-
-  Widget _crearAppbar(Pelicula pelicula) {
+Widget _crearAppbar(Pelicula pelicula,BuildContext context) {
     return SliverAppBar(
       iconTheme: IconThemeData(
         color: Colors.white, //change your color here
       ),
       elevation: 2.0,
-      backgroundColor: Colors.yellow,
+      backgroundColor: Theme.of(context).primaryColor,
       expandedHeight: 200.0,
       floating: false,
       pinned: true,

@@ -59,16 +59,15 @@ class PeliculasProvider {
       'page': _popularesPage.toString(),
     });
 
-      final resp = await _procesarRespuesta(url);
-    
-      _populares.addAll(resp);
+    final resp = await _procesarRespuesta(url);
 
-      popularesSink(_populares);
+    _populares.addAll(resp);
 
-      _cargando = false;
+    popularesSink(_populares);
 
-      return resp;
-   
+    _cargando = false;
+
+    return resp;
   }
 
   Future<List<Actor>> getCast(String peliId) async {
@@ -83,7 +82,8 @@ class PeliculasProvider {
 
     return cast.actores;
   }
-   Future<List<Result>> getVideo(String peliId) async {
+
+  Future<List<Result>> getVideo(String peliId) async {
     final url = Uri.https(_url, '3/movie/$peliId/videos', {
       'api_key': _apiKey,
       'language': _language,
@@ -108,40 +108,41 @@ class PeliculasProvider {
   // }
 
   Future<List<Pelicula>> _procesarRespuesta(Uri url) async {
+    try {
+      final respuesta = await http.get(url);
 
-
-    try{
-    
-    final respuesta = await http.get(url);
-    
-    final decodedDAta = json.decode(respuesta.body);
-    final peliculas = new Peliculas.fromJsonList(decodedDAta['results']);
-    return peliculas.items;
-
+      // final decodedDAta = json.decode(respuesta.body);
+      final decodedDAta = _returnResponse(respuesta);
+      final peliculas = new Peliculas.fromJsonList(decodedDAta['results']);
+      return peliculas.items;
     } on SocketException {
       throw FetchDataException('No Internet connection');
     }
-
   }
 
-//    dynamic _returnResponse(http.Response response) {
-//   switch (response.statusCode) {
-//     case 200:
-//       var responseJson = json.decode(response.body.toString());
-//       print(responseJson);
-//       return responseJson;
-//     case 400:
-//       throw BadRequestException(response.body.toString());
-//     case 401:
-//     case 403:
-//       throw UnauthorisedException(response.body.toString());
-//     case 500:
-//     default:
-//       throw FetchDataException(
-//           'Error occured while Communication with Server with StatusCode : ${response.statusCode}');
-//   }
-  
-// }
+  dynamic _returnResponse(http.Response response) {
+    switch (response.statusCode) {
+      case 200:
+        var responseJson = json.decode(response.body.toString());
+        print('status 200');
+        return responseJson;
+      case 400:
+        print('status 400');
+        throw BadRequestException(response.body.toString());
+      case 401:
+        print('status 401');
+        break;
+      case 403:
+        print('status 403');
+        throw UnauthorisedException(response.body.toString());
+      case 500:
+        print('status 500');
+        break;
+      default:
+        throw FetchDataException(
+            'Error occured while Communication with Server with StatusCode : ${response.statusCode}');
+    }
+  }
 
   Future<List<Pelicula>> buscarPelicula(String query) async {
     final url = Uri.https(_url, '3/search/movie',
@@ -149,6 +150,4 @@ class PeliculasProvider {
 
     return await _procesarRespuesta(url);
   }
-
- 
 }
