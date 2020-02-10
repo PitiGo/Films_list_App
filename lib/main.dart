@@ -1,4 +1,4 @@
-// import 'package:device_preview/device_preview.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:My_Films/locale/locales.dart';
@@ -6,19 +6,84 @@ import 'package:My_Films/src/pages/home_page.dart';
 import 'package:My_Films/src/pages/lista_page.dart';
 import 'package:My_Films/src/pages/pelicula_detalle.dart';
 import 'package:My_Films/src/pages/video_player_page.dart';
+import 'package:launch_review/launch_review.dart';
+import 'package:rate_my_app/rate_my_app.dart';
 
-// void main() => runApp(DevicePreview(
-//       builder: (BuildContext context) {
-//         return MyApp();
-//       },
-//     ));
-void main() => runApp(MyApp());
+void main() => runApp(DevicePreview(
+      builder: (BuildContext context) {
+        return MyApp();
+      },
+    ));
+// void main() => runApp(MyApp());
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+  static final navKey = new GlobalKey<NavigatorState>();
+  MyApp({Key navKey}) : super(key: navKey);
+
+  @override
+  _MyAppState createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  final RateMyApp rateMyApp = RateMyApp(
+    preferencesPrefix: 'rateMyApp_',
+    minDays: 3,
+    minLaunches: 3,
+    remindDays: 2,
+    remindLaunches: 5,
+    googlePlayIdentifier: 'com.app.My_Films',
+    // appStoreIdentifier: '1491556149',
+  );
+
+  @override
+  void initState() {
+    super.initState();
+
+    rateMyApp.init().then((_) {
+      if (rateMyApp.shouldOpenDialog) {
+        final contexto = MyApp.navKey.currentState.overlay.context;
+        rateMyApp.showStarRateDialog(
+          contexto,
+          title: AppLocalizations.of(contexto).rate,
+          message: AppLocalizations.of(contexto).leavearate,
+          onRatingChanged: (stars) {
+            return [
+              FlatButton(
+                child: Text('OK'),
+                onPressed: () {
+                  if (stars != null) {
+                    rateMyApp.save().then((v) => Navigator.pop(contexto));
+
+                    if (stars <= 3) {
+                      print('Go to contact screen');
+                    } else if (stars <= 5) {
+                      LaunchReview.launch(androidAppId: "com.app.My_Films");
+                      print('leave a review Dialog');
+                      // showDialog()
+                    }
+                  } else {
+                    Navigator.pop(contexto);
+                  }
+                },
+              )
+            ];
+          },
+          dialogStyle: DialogStyle(
+            titleAlign: TextAlign.center,
+            messageAlign: TextAlign.center,
+            messagePadding: EdgeInsets.only(bottom: 20.0),
+          ),
+          starRatingOptions: StarRatingOptions(),
+        );
+      }
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // locale: Locale('de'),
+      navigatorKey: MyApp.navKey,
+      // locale: Locale('es'),
       // locale: DevicePreview.of(context).locale, // <--- Add the locale
       // builder: DevicePreview.appBuilder, // <--- Add the builder
       localizationsDelegates: [
@@ -39,10 +104,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'My Films',
       theme: ThemeData(
-
         primaryColor: Color(0xFFF3CE13),
-
-
       ),
       onGenerateTitle: (BuildContext context) =>
           AppLocalizations.of(context).title,

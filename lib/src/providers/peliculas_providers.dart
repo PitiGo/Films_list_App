@@ -22,10 +22,16 @@ class PeliculasProvider {
   get language => _language;
 
   int _popularesPage = 1;
-  bool _cargando = false;
+  int _topRatedPage = 1;
+  bool _cargandoPopulares = false;
+  bool _cargandoTopRated = false;
 
   List<Pelicula> _populares = new List();
+  List<Pelicula> _topRated = new List();
+
   final _popularesStreamController =
+      StreamController<List<Pelicula>>.broadcast();
+  final _topRatedStreamController =
       StreamController<List<Pelicula>>.broadcast();
 
   Function(List<Pelicula>) get popularesSink =>
@@ -33,8 +39,13 @@ class PeliculasProvider {
   Stream<List<Pelicula>> get popularesStream =>
       _popularesStreamController.stream;
 
+  Function(List<Pelicula>) get topRatedSink =>
+      _topRatedStreamController.sink.add;
+  Stream<List<Pelicula>> get topRatedStream => _topRatedStreamController.stream;
+
   void disposeStreams() {
     _popularesStreamController.close();
+    _topRatedStreamController.close();
   }
 
   Future<List<Pelicula>> getEnCines() async {
@@ -47,9 +58,9 @@ class PeliculasProvider {
   }
 
   Future<List<Pelicula>> getPopulares() async {
-    if (_cargando) return [];
+    if (_cargandoPopulares) return [];
 
-    _cargando = true;
+    _cargandoPopulares = true;
 
     _popularesPage++;
 
@@ -65,7 +76,31 @@ class PeliculasProvider {
 
     popularesSink(_populares);
 
-    _cargando = false;
+    _cargandoPopulares = false;
+
+    return resp;
+  }
+
+  Future<List<Pelicula>> getTopRated() async {
+    if (_cargandoTopRated) return [];
+
+    _cargandoTopRated = true;
+
+    _topRatedPage++;
+
+    final url = Uri.https(_url, '3/movie/top_rated', {
+      'api_key': _apiKey,
+      'language': _language,
+      'page': _topRatedPage.toString(),
+    });
+
+    final resp = await _procesarRespuesta(url);
+
+    _topRated.addAll(resp);
+
+    topRatedSink(_topRated);
+
+    _cargandoTopRated = false;
 
     return resp;
   }
@@ -116,7 +151,7 @@ class PeliculasProvider {
       final peliculas = new Peliculas.fromJsonList(decodedDAta['results']);
       return peliculas.items;
     } on SocketException {
-      throw FetchDataException('No Internet connection');
+      throw FetchDataException('No Internet connection!');
     }
   }
 
@@ -124,19 +159,15 @@ class PeliculasProvider {
     switch (response.statusCode) {
       case 200:
         var responseJson = json.decode(response.body.toString());
-        print('status 200');
+
         return responseJson;
       case 400:
-        print('status 400');
         throw BadRequestException(response.body.toString());
       case 401:
-        print('status 401');
         break;
       case 403:
-        print('status 403');
         throw UnauthorisedException(response.body.toString());
       case 500:
-        print('status 500');
         break;
       default:
         throw FetchDataException(

@@ -88,5 +88,15 @@
   "@list": {
     "type": "text",
     "placeholders": {}
+  },
+  "leavearate": "Veuillez évaluer cette application!",
+  "@leavearate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "rate": "Rate this app",
+  "@rate": {
+    "type": "text",
+    "placeholders": {}
   }
 }

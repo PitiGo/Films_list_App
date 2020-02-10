@@ -22,6 +22,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static _notInlinedMessages(_) => <String, Function> {
     "discover" : MessageLookupByLibrary.simpleMessage("Para descobrir"),
+    "leavearate" : MessageLookupByLibrary.simpleMessage("Por favor, classifique este aplicativo!"),
     "list" : MessageLookupByLibrary.simpleMessage("List"),
     "movieadded" : MessageLookupByLibrary.simpleMessage("Filme adicionado à sua lista"),
     "moviealready" : MessageLookupByLibrary.simpleMessage("O filme já está na sua lista"),
@@ -29,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "mylist" : MessageLookupByLibrary.simpleMessage("Minha lista"),
     "notviewed" : MessageLookupByLibrary.simpleMessage("Filme ainda não visto"),
     "popular" : MessageLookupByLibrary.simpleMessage("Populares"),
+    "rate" : MessageLookupByLibrary.simpleMessage("Rate this app"),
     "search" : MessageLookupByLibrary.simpleMessage("Pesquisar"),
     "sharemovie" : MessageLookupByLibrary.simpleMessage("Compartilhar filme"),
     "title" : MessageLookupByLibrary.simpleMessage("My Films"),

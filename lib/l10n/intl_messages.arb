@@ -1,6 +1,6 @@
 {
-  "@@last_modified": "2020-01-16T18:02:54.084266",
-  "title": "My Films",
+  "@@last_modified": "2020-01-29T08:35:35.337062",
+  "title": "My films",
   "@title": {
     "description": "Movies",
     "type": "text",
@@ -8,7 +8,7 @@
   },
   "popular": "Popular",
   "@popular": {
-    "description": "Pupular",
+    "description": "Popular",
     "type": "text",
     "placeholders": {}
   },
@@ -86,6 +86,16 @@
   },
   "list": "List",
   "@list": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "rate": "Rate this app",
+  "@rate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "leavearate": "Please leave a rate!",
+  "@leavearate": {
     "type": "text",
     "placeholders": {}
   }

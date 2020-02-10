@@ -6,8 +6,9 @@ class MovieHorizontal extends StatelessWidget {
   final List<dynamic> peliculas;
 
   final Function siguientePagina;
+  final String subGroupMovies;
 
-  MovieHorizontal({@required this.peliculas, @required this.siguientePagina});
+  MovieHorizontal({@required this.peliculas, @required this.siguientePagina,this.subGroupMovies});
 
   final _pageController = new PageController(
     initialPage: 3,
@@ -17,7 +18,6 @@ class MovieHorizontal extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // final _screenSize = MediaQuery.of(context).size;
-    
 
     _pageController.addListener(() {
       // _pageController.position.minScrollExtent = 0;
@@ -29,16 +29,17 @@ class MovieHorizontal extends StatelessWidget {
     });
 
     return BaseWidget(builder: (context, sizingInfo) {
-     
       bool portrait = (sizingInfo.orientation == Orientation.portrait);
 
       return Container(
-        height: portrait?sizingInfo.screenSize.height * 0.27:sizingInfo.screenSize.width * 0.27,
-        child: PageView.builder(
+        height: portrait
+            ? sizingInfo.screenSize.height * 0.27
+            : sizingInfo.screenSize.width * 0.27,
+        child: ListView.builder(
             scrollDirection: Axis.horizontal,
-            physics: PageScrollPhysics(),
+            physics: BouncingScrollPhysics(),
             controller: _pageController,
-            pageSnapping: false,
+            // pageSnapping: false,
             itemCount: peliculas.length,
             itemBuilder: (context, index) => _tarjeta(context, peliculas[index])
 
@@ -49,11 +50,15 @@ class MovieHorizontal extends StatelessWidget {
   }
 
   Widget _tarjeta(BuildContext context, Pelicula pelicula) {
-    pelicula.uniqueId = '${pelicula.id}-poster';
+    // String tipoPeli= ModalRoute.of(context).settings.arguments;
+    pelicula.uniqueId = (subGroupMovies=='popular')? '${pelicula.id}-poster':'${pelicula.id}-top';
+
     final tarjeta = Container(
+      width: 90.0,
       margin: EdgeInsets.only(right: 15.0),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
+        mainAxisSize: MainAxisSize.max,
+        crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           Hero(
             tag: pelicula.uniqueId,

@@ -22,6 +22,7 @@ class _HomePageState extends State<HomePage> {
     peliculasProvider.language = myLocale.languageCode;
 
     peliculasProvider.getPopulares();
+    peliculasProvider.getTopRated();
 
     return Scaffold(
       bottomNavigationBar: _crearBottomNavigationBar(),
@@ -57,7 +58,10 @@ class _HomePageState extends State<HomePage> {
             child: Center(
               child: Text(
                 snapshot.error.toString(),
-                style: TextStyle(color: Colors.red, fontSize: 20,fontWeight: FontWeight.bold),
+                style: TextStyle(
+                    color: Colors.red,
+                    fontSize: 20,
+                    fontWeight: FontWeight.bold),
               ),
             ),
           );
@@ -79,7 +83,7 @@ class _HomePageState extends State<HomePage> {
     //
   }
 
-  Widget _footer(BuildContext context) {
+  Widget _footerPopular(BuildContext context) {
     return Container(
       width: double.infinity,
       child: Column(
@@ -106,15 +110,18 @@ class _HomePageState extends State<HomePage> {
                   child: Center(
                     child: Text(
                       snapshot.error.toString(),
-                      style: TextStyle(color: Colors.red, fontSize: 20,fontWeight: FontWeight.bold),
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 );
-              }
-              else if (snapshot.hasData) {
+              } else if (snapshot.hasData) {
                 return MovieHorizontal(
                   siguientePagina: peliculasProvider.getPopulares,
                   peliculas: snapshot.data,
+                  subGroupMovies: 'popular',
                 );
               } else {
                 return Center(
@@ -135,6 +142,57 @@ class _HomePageState extends State<HomePage> {
           //     }
           //   },
           // ),
+        ],
+      ),
+    );
+  }
+  Widget _footerTopRated(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Container(
+            padding: EdgeInsets.only(left: 20.0),
+            child: Text(
+              'Top rated',
+              style: Theme.of(context).textTheme.subhead,
+            ),
+          ),
+          SizedBox(
+            height: 5.0,
+          ),
+          StreamBuilder(
+            stream: peliculasProvider.topRatedStream,
+            initialData: [],
+            builder: (context, snapshot) {
+              if (snapshot.hasError) {
+                return Container(
+                  height: 400,
+                  child: Center(
+                    child: Text(
+                      snapshot.error.toString(),
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                );
+              } else if (snapshot.hasData) {
+                return MovieHorizontal(
+                  siguientePagina: peliculasProvider.getTopRated,
+                  peliculas: snapshot.data,
+                  subGroupMovies: 'top',
+                );
+              } else {
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
+              }
+            },
+          ),
         ],
       ),
     );
@@ -194,7 +252,8 @@ class _HomePageState extends State<HomePage> {
         child: Column(
           children: <Widget>[
             _swiperTarjetas(),
-            _footer(context),
+            _footerPopular(context),
+            _footerTopRated(context),
           ],
         ),
       ),

@@ -88,5 +88,15 @@
   "@list": {
     "type": "text",
     "placeholders": {}
+  },
+  "leavearate": "Please leave a rate!",
+  "@leavearate": {
+    "type": "text",
+    "placeholders": {}
+  },
+  "rate": "Rate this app",
+  "@rate": {
+    "type": "text",
+    "placeholders": {}
   }
 }

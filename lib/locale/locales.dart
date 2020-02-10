@@ -79,6 +79,12 @@ class AppLocalizations {
   String get list {
     return Intl.message('List', name: 'list');
   }
+  String get rate {
+    return Intl.message('Rate this app', name: 'rate');
+  }
+  String get leavearate {
+    return Intl.message('Please leave a rate!', name: 'leavearate');
+  }
 }
 
 class AppLocalizationsDelegate extends LocalizationsDelegate<AppLocalizations> {
