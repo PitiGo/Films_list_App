@@ -1,3 +1,4 @@
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:My_Films/locale/locales.dart';
 import 'package:My_Films/src/pages/lista_page.dart';
@@ -11,9 +12,35 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
+const String testDevice = "6727C74FD5CD433078521370CB5A73BC";
+
+// FirebaseAnalytics analytics = FirebaseAnalytics();
 class _HomePageState extends State<HomePage> {
   final peliculasProvider = new PeliculasProvider();
   int currentindex = 0;
+
+  InterstitialAd _interstitialAd;
+
+  static const MobileAdTargetingInfo mobileAdTargetingInfo =
+      MobileAdTargetingInfo(
+          testDevices: testDevice != null ? <String>[testDevice] : null,
+          // nonPersonalizedAds: true,
+          keywords: <String>[
+        'Seguro',
+        'Seguros de vida',
+        'Hipoteca',
+        'Prestamo',
+      ]);
+
+  InterstitialAd createInterstitialAd() {
+    return InterstitialAd(
+        adUnitId: 'ca-app-pub-5709755665172014/1056538322',
+        // size: AdSize.banner,
+        targetingInfo: mobileAdTargetingInfo,
+        listener: (MobileAdEvent event) {
+          print("InterstitialAd $event");
+        });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -146,6 +173,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
   Widget _footerTopRated(BuildContext context) {
     return Container(
       width: double.infinity,
@@ -203,6 +231,11 @@ class _HomePageState extends State<HomePage> {
       currentIndex: currentindex,
       onTap: (index) {
         currentindex = index;
+        if (currentindex == 1) {
+          _interstitialAd = createInterstitialAd()
+            ..load()
+            ..show();
+        }
 
         setState(() {});
       },
@@ -239,6 +272,7 @@ class _HomePageState extends State<HomePage> {
       case 0:
         return _mainPage();
       case 1:
+        // _interstitialAd = createInterstitialAd()..load()..show();
         return ListaPage();
       default:
         return _mainPage();
