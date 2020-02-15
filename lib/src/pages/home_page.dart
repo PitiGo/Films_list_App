@@ -17,6 +17,7 @@ const String testDevice = "6727C74FD5CD433078521370CB5A73BC";
 // FirebaseAnalytics analytics = FirebaseAnalytics();
 class _HomePageState extends State<HomePage> {
   final peliculasProvider = new PeliculasProvider();
+  
   int currentindex = 0;
 
   InterstitialAd _interstitialAd;
@@ -44,6 +45,7 @@ class _HomePageState extends State<HomePage> {
 
   @override
   Widget build(BuildContext context) {
+    
     Locale myLocale = Localizations.localeOf(context);
 
     peliculasProvider.language = myLocale.languageCode;

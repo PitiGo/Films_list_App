@@ -2,9 +2,11 @@ import 'package:flutter/material.dart';
 import 'package:youtube_player_flutter/youtube_player_flutter.dart';
 
 class VideoPlayerPage extends StatefulWidget {
-  final String videoId;
 
-  const VideoPlayerPage({Key key, this.videoId}) : super(key: key);
+  final String videoId;
+  final String caption;
+
+  const VideoPlayerPage({Key key, this.videoId,this.caption}) : super(key: key);
 
   @override
   _VideoPlayerPageState createState() => _VideoPlayerPageState();
@@ -24,6 +26,8 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
         autoPlay: true,
         forceHideAnnotation: true,
         controlsVisibleAtStart: true,
+        captionLanguage: widget.caption,
+         
       ),
     );
     super.initState();

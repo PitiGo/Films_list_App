@@ -1,6 +1,7 @@
 // import 'package:device_preview/device_preview.dart';
+import 'package:My_Films/responsive/base_widget.dart';
 import 'package:firebase_admob/firebase_admob.dart';
-import 'package:firebase_analytics/firebase_analytics.dart';
+// import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:My_Films/locale/locales.dart';
@@ -11,8 +12,8 @@ import 'package:My_Films/src/pages/video_player_page.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
-const String testDevice = "6727C74FD5CD433078521370CB5A73BC";
-FirebaseAnalytics analytics = FirebaseAnalytics();
+// const String testDevice = "6727C74FD5CD433078521370CB5A73BC";
+// FirebaseAnalytics analytics = FirebaseAnalytics();
 // void main() => runApp(DevicePreview(
 //       builder: (BuildContext context) {
 //         return MyApp();
@@ -41,7 +42,7 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   final RateMyApp rateMyApp = RateMyApp(
     preferencesPrefix: 'rateMyApp_',
-    minDays: 3,
+    minDays: 2,
     minLaunches: 3,
     remindDays: 2,
     remindLaunches: 5,
@@ -49,7 +50,7 @@ class _MyAppState extends State<MyApp> {
     // appStoreIdentifier: '1491556149',
   );
 
-  InterstitialAd _interstitialAd;
+  // InterstitialAd _interstitialAd;
   BannerAd _bannerAd;
 
   BannerAd createBannerAd() {
@@ -61,8 +62,6 @@ class _MyAppState extends State<MyApp> {
           print("BannerAd $event");
         });
   }
-
- 
 
   @override
   void initState() {
@@ -117,7 +116,7 @@ class _MyAppState extends State<MyApp> {
 
   @override
   void dispose() {
-    _interstitialAd.dispose();
+    // _interstitialAd.dispose();
     _bannerAd.dispose();
 
     super.dispose();
@@ -127,10 +126,22 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return MaterialApp(
       builder: (context, child) {
-        return Padding(
-          padding: const EdgeInsets.only(bottom: 51.0),
-          child: child,
-        );
+        return BaseWidget(builder: (context, sizingInformation) {
+          // bool portrait =(sizingInformation.orientation == Orientation.portrait);
+      
+          double height = sizingInformation.screenSize.height;
+
+         
+          double offset = 51;
+          if (height > 700){
+              offset = 85;
+          } 
+
+          return Padding(
+            padding: EdgeInsets.only(bottom: offset),
+            child: child,
+          );
+        });
       },
       navigatorKey: MyApp.navKey,
       // locale: Locale('es'),
@@ -162,7 +173,7 @@ class _MyAppState extends State<MyApp> {
       routes: {
         '/': (BuildContext context) => HomePage(),
         'detalle': (BuildContext context) => PeliculaDetalle(),
-        'lista': (BuildContext context) =>ListaPage(),
+        'lista': (BuildContext context) => ListaPage(),
         'video': (BuildContext context) => VideoPlayerPage(),
       },
     );

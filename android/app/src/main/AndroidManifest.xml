@@ -31,8 +31,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-         <meta-data
+        <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="[ca-app-pub-5709755665172014~2047310155]"/>
+            android:value="[ca-app-pub-5709755665172014~1447065348]"/>
     </application>
 </manifest>

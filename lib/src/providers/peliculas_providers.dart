@@ -121,7 +121,7 @@ class PeliculasProvider {
   Future<List<Result>> getVideo(String peliId) async {
     final url = Uri.https(_url, '3/movie/$peliId/videos', {
       'api_key': _apiKey,
-      'language': _language,
+      'language': 'en-En' /* _language */,
     });
 
     final resp = await http.get(url);

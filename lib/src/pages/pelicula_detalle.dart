@@ -7,7 +7,8 @@ import 'package:My_Films/src/models/videos_model.dart';
 import 'package:My_Films/src/pages/video_player_page.dart';
 import 'package:My_Films/src/providers/db_provider.dart';
 import 'package:My_Films/src/providers/peliculas_providers.dart';
-import 'package:share/share.dart';
+// import 'package:share/share.dart';
+import 'package:esys_flutter_share/esys_flutter_share.dart';
 
 class PeliculaDetalle extends StatelessWidget {
   @override
@@ -204,6 +205,7 @@ Widget _crearAppbar(Pelicula pelicula,BuildContext context) {
                   MaterialPageRoute(
                     builder: (context) => VideoPlayerPage(
                       videoId: videos.first.key,
+                      caption: myLocale.languageCode ,
                     ),
                   ),
                 );
@@ -248,11 +250,18 @@ Widget _crearAppbar(Pelicula pelicula,BuildContext context) {
             onPressed: () {
               Pelicula pelicula = ModalRoute.of(context).settings.arguments;
 
-              Share.share(
-                  AppLocalizations.of(context).watchthismovie +
-                      ' \n ' +
-                      pelicula.getPosterImg(),
-                  subject: AppLocalizations.of(context).watchthismovie);
+              // Share.share(
+              //     AppLocalizations.of(context).watchthismovie +
+              //         ' \n ' +
+              //         pelicula.getPosterImg(),
+              //     subject: AppLocalizations.of(context).watchthismovie);
+
+                  Share.text(AppLocalizations.of(context).watchthismovie, pelicula.getPosterImg(), 'text/plain');
+
+                // var request = await HttpClient().getUrl(Uri.parse('https://shop.esys.eu/media/image/6f/8f/af/amlog_transport-berwachung.jpg'));
+                // var response = await request.close();
+                // Uint8List bytes = await consolidateHttpClientResponseBytes(response);
+                // await Share.file('ESYS AMLOG', 'amlog.jpg', bytes, 'image/jpg');
             },
           ),
           title: Container(),
