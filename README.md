@@ -1,6 +1,6 @@
 # My_Films
 
-A new Flutter project.
+A new Flutter project fro movies.
 
 ## Getting Started
 
