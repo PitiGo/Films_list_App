@@ -1,4 +1,4 @@
-import 'package:My_Films/responsive/device_screen_type.dart';
+import 'package:MyFilms/responsive/device_screen_type.dart';
 import 'package:flutter/material.dart';
 
 DeviceScreenType getDeviceType(MediaQueryData mediaQueryData) {

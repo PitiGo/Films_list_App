@@ -1,11 +1,11 @@
 import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
-import 'package:My_Films/locale/locales.dart';
-import 'package:My_Films/src/pages/lista_page.dart';
-import 'package:My_Films/src/providers/peliculas_providers.dart';
-import 'package:My_Films/src/search/search_delegate.dart';
-import 'package:My_Films/src/widgets/card_swiper_widget.dart';
-import 'package:My_Films/src/widgets/movies_horizontal.dart';
+import 'package:MyFilms/locale/locales.dart';
+import 'package:MyFilms/src/pages/lista_page.dart';
+import 'package:MyFilms/src/providers/peliculas_providers.dart';
+import 'package:MyFilms/src/search/search_delegate.dart';
+import 'package:MyFilms/src/widgets/card_swiper_widget.dart';
+import 'package:MyFilms/src/widgets/movies_horizontal.dart';
 
 class HomePage extends StatefulWidget {
   @override

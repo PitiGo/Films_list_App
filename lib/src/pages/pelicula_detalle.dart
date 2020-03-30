@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
-import 'package:My_Films/locale/locales.dart';
-import 'package:My_Films/src/models/actores_model.dart';
-import 'package:My_Films/src/models/pelicula_model.dart';
-import 'package:My_Films/src/models/videos_model.dart';
-import 'package:My_Films/src/pages/video_player_page.dart';
-import 'package:My_Films/src/providers/db_provider.dart';
-import 'package:My_Films/src/providers/peliculas_providers.dart';
+import 'package:MyFilms/locale/locales.dart';
+import 'package:MyFilms/src/models/actores_model.dart';
+import 'package:MyFilms/src/models/pelicula_model.dart';
+import 'package:MyFilms/src/models/videos_model.dart';
+import 'package:MyFilms/src/pages/video_player_page.dart';
+import 'package:MyFilms/src/providers/db_provider.dart';
+import 'package:MyFilms/src/providers/peliculas_providers.dart';
 // import 'package:share/share.dart';
 import 'package:esys_flutter_share/esys_flutter_share.dart';
 

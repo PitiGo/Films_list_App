@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:My_Films/src/models/pelicula_model.dart';
-import 'package:My_Films/src/providers/peliculas_providers.dart';
+import 'package:MyFilms/src/models/pelicula_model.dart';
+import 'package:MyFilms/src/providers/peliculas_providers.dart';
 
 class DataSearch extends SearchDelegate {
   String seleccion = '';

@@ -1,14 +1,14 @@
 // import 'package:device_preview/device_preview.dart';
-import 'package:My_Films/responsive/base_widget.dart';
+import 'package:MyFilms/responsive/base_widget.dart';
 import 'package:firebase_admob/firebase_admob.dart';
 // import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
-import 'package:My_Films/locale/locales.dart';
-import 'package:My_Films/src/pages/home_page.dart';
-import 'package:My_Films/src/pages/lista_page.dart';
-import 'package:My_Films/src/pages/pelicula_detalle.dart';
-import 'package:My_Films/src/pages/video_player_page.dart';
+import 'package:MyFilms/locale/locales.dart';
+import 'package:MyFilms/src/pages/home_page.dart';
+import 'package:MyFilms/src/pages/lista_page.dart';
+import 'package:MyFilms/src/pages/pelicula_detalle.dart';
+import 'package:MyFilms/src/pages/video_player_page.dart';
 import 'package:launch_review/launch_review.dart';
 import 'package:rate_my_app/rate_my_app.dart';
 
@@ -46,7 +46,7 @@ class _MyAppState extends State<MyApp> {
     minLaunches: 3,
     remindDays: 2,
     remindLaunches: 5,
-    googlePlayIdentifier: 'com.app.My_Films',
+    googlePlayIdentifier: 'com.app.MyFilms',
     // appStoreIdentifier: '1491556149',
   );
 
@@ -92,7 +92,7 @@ class _MyAppState extends State<MyApp> {
                     if (stars <= 3) {
                       print('Go to contact screen');
                     } else if (stars <= 5) {
-                      LaunchReview.launch(androidAppId: "com.app.My_Films");
+                      LaunchReview.launch(androidAppId: "com.app.MyFilms");
                       print('leave a review Dialog');
                       // showDialog()
                     }
@@ -128,14 +128,13 @@ class _MyAppState extends State<MyApp> {
       builder: (context, child) {
         return BaseWidget(builder: (context, sizingInformation) {
           // bool portrait =(sizingInformation.orientation == Orientation.portrait);
-      
+
           double height = sizingInformation.screenSize.height;
 
-         
           double offset = 51;
-          if (height > 700){
-              offset = 85;
-          } 
+          if (height > 700) {
+            offset = 85;
+          }
 
           return Padding(
             padding: EdgeInsets.only(bottom: offset),

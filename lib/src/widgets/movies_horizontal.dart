@@ -1,6 +1,6 @@
-import 'package:My_Films/responsive/base_widget.dart';
+import 'package:MyFilms/responsive/base_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:My_Films/src/models/pelicula_model.dart';
+import 'package:MyFilms/src/models/pelicula_model.dart';
 
 class MovieHorizontal extends StatelessWidget {
   final List<dynamic> peliculas;

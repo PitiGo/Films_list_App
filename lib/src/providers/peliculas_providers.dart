@@ -1,14 +1,14 @@
 import 'dart:io';
 
-import 'package:My_Films/src/models/actores_model.dart';
-import 'package:My_Films/src/models/pelicula_model.dart';
-import 'package:My_Films/src/providers/exceptions.dart';
+import 'package:MyFilms/src/models/actores_model.dart';
+import 'package:MyFilms/src/models/pelicula_model.dart';
+import 'package:MyFilms/src/providers/exceptions.dart';
 import 'package:http/http.dart' as http;
 
 import 'dart:async';
 import 'dart:convert';
 
-import 'package:My_Films/src/models/videos_model.dart';
+import 'package:MyFilms/src/models/videos_model.dart';
 
 class PeliculasProvider {
   String _apiKey = 'e8686676734d36b9c2b28f181906511b';

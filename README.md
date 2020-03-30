@@ -1,4 +1,4 @@
-# My_Films
+# MyFilms
 
 A new Flutter project fro movies.
 

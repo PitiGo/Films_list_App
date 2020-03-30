@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:My_Films/l10n/messages_all.dart';
+import 'package:MyFilms/l10n/messages_all.dart';
 import 'package:intl/intl.dart';
 
 class AppLocalizations {

@@ -1,5 +1,6 @@
-import 'package:My_Films/responsive/sizing_information.dart';
-import 'package:My_Films/utils/ui_utils.dart';
+import 'package:MyFilms/responsive/sizing_information.dart';
+import 'package:MyFilms/utils/ui_utils.dart';
+
 import 'package:flutter/material.dart';
 
 
