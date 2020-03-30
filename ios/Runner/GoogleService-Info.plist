@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CLIENT_ID</key>
-	<string>332257047082-rfmm6vgv8s4jv7fhvthrldq60mt2v2bs.apps.googleusercontent.com</string>
+	<string>332257047082-rj15105ihftf45tgeq0mh39vkv92jqih.apps.googleusercontent.com</string>
 	<key>REVERSED_CLIENT_ID</key>
-	<string>com.googleusercontent.apps.332257047082-rfmm6vgv8s4jv7fhvthrldq60mt2v2bs</string>
+	<string>com.googleusercontent.apps.332257047082-rj15105ihftf45tgeq0mh39vkv92jqih</string>
 	<key>API_KEY</key>
 	<string>AIzaSyBWuSQI2Rb-FRKMlgXu6ycWubo-JrHl7nI</string>
 	<key>GCM_SENDER_ID</key>
@@ -29,7 +29,7 @@
 	<key>IS_SIGNIN_ENABLED</key>
 	<true></true>
 	<key>GOOGLE_APP_ID</key>
-	<string>1:332257047082:ios:546840fe3642c7372a0953</string>
+	<string>1:332257047082:ios:7fe5fa2b9df27b512a0953</string>
 	<key>DATABASE_URL</key>
 	<string>https://myfilms-27210.firebaseio.com</string>
 </dict>
