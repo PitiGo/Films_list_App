@@ -24,7 +24,7 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
       flags: YoutubePlayerFlags(
         mute: false,
         autoPlay: true,
-        forceHideAnnotation: true,
+        // forceHideAnnotation: true,
         controlsVisibleAtStart: true,
         captionLanguage: widget.caption,
          

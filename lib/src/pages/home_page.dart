@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(left: 20.0),
             child: Text(
               AppLocalizations.of(context).popular,
-              style: Theme.of(context).textTheme.subhead,
+              style: Theme.of(context).textTheme.subtitle1,
             ),
           ),
           SizedBox(
@@ -187,7 +187,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(left: 20.0),
             child: Text(
               'Top rated',
-              style: Theme.of(context).textTheme.subhead,
+              style: Theme.of(context).textTheme.subtitle1,
             ),
           ),
           SizedBox(

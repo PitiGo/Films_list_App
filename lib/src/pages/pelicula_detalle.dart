@@ -85,10 +85,10 @@ Widget _crearAppbar(Pelicula pelicula,BuildContext context) {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(pelicula.title,
-                    style: Theme.of(context).textTheme.title,
+                    style: Theme.of(context).textTheme.headline6,
                     overflow: TextOverflow.ellipsis),
                 Text(pelicula.originalTitle,
-                    style: Theme.of(context).textTheme.subhead,
+                    style: Theme.of(context).textTheme.subtitle1,
                     overflow: TextOverflow.ellipsis),
                 Row(
                   children: <Widget>[
@@ -98,7 +98,7 @@ Widget _crearAppbar(Pelicula pelicula,BuildContext context) {
                     ),
                     Text(
                       pelicula.voteAverage.toString(),
-                      style: Theme.of(context).textTheme.subhead,
+                      style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ],
                 )
