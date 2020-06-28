@@ -1,6 +1,6 @@
 # MyFilms
 
-A new Flutter project fro movies.
+A new Flutter project for movies.
 
 ## Getting Started
 

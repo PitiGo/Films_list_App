@@ -25,8 +25,9 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
         mute: false,
         autoPlay: true,
         forceHideAnnotation: true,
-        controlsVisibleAtStart: true,
+        controlsVisibleAtStart: false,
         captionLanguage: widget.caption,
+
          
       ),
     );
@@ -38,8 +39,11 @@ class _VideoPlayerPageState extends State<VideoPlayerPage> {
     return YoutubePlayer(
       controller: _controller,
       showVideoProgressIndicator: true,
+    
+
 
       bottomActions: [
+
         CurrentPosition(),
         ProgressBar(isExpanded: true),
       ],

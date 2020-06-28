@@ -185,54 +185,54 @@ Widget _crearAppbar(Pelicula pelicula,BuildContext context) {
 
     return BottomNavigationBar(
       items: <BottomNavigationBarItem>[
-        BottomNavigationBarItem(
-          icon: IconButton(
-            icon: Icon(
-              Icons.play_arrow,
-              size: 40.0,
-              color: Theme.of(context).primaryColor,
-            ),
-            onPressed: () async {
-              print('Play youtube');
+        // BottomNavigationBarItem(
+        //   icon: IconButton(
+        //     icon: Icon(
+        //       Icons.play_arrow,
+        //       size: 40.0,
+        //       color: Colors.black,
+        //     ),
+        //     onPressed: () async {
+        //       print('Play youtube');
 
-              Pelicula pelicula = ModalRoute.of(context).settings.arguments;
+        //       Pelicula pelicula = ModalRoute.of(context).settings.arguments;
 
-              List<Result> videos =
-                  await peliProvider.getVideo(pelicula.id.toString());
+        //       List<Result> videos =
+        //           await peliProvider.getVideo(pelicula.id.toString());
 
-              if (videos.isNotEmpty) {
-                Navigator.of(context).push(
-                  MaterialPageRoute(
-                    builder: (context) => VideoPlayerPage(
-                      videoId: videos.first.key,
-                      caption: myLocale.languageCode ,
-                    ),
-                  ),
-                );
-              } else {
-                Fluttertoast.showToast(
-                  msg: 'Trailer not available',
-                  toastLength: Toast.LENGTH_LONG,
-                  gravity: ToastGravity.TOP,
-                  timeInSecForIos: 1,
-                  backgroundColor: Colors.red,
-                  textColor: Colors.white,
-                  fontSize: 16.0,
-                );
-              }
+        //       if (videos.isNotEmpty) {
+        //         Navigator.of(context).push(
+        //           MaterialPageRoute(
+        //             builder: (context) => VideoPlayerPage(
+        //               videoId: videos.first.key,
+        //               caption: myLocale.languageCode ,
+        //             ),
+        //           ),
+        //         );
+        //       } else {
+        //         Fluttertoast.showToast(
+        //           msg: 'Trailer not available',
+        //           toastLength: Toast.LENGTH_LONG,
+        //           gravity: ToastGravity.TOP,
+        //           timeInSecForIos: 1,
+        //           backgroundColor: Colors.red,
+        //           textColor: Colors.white,
+        //           fontSize: 16.0,
+        //         );
+        //       }
 
-              // Navigator.popAndPushNamed(context, 'video',
-              //     arguments: videos.first.key);
-            },
-          ),
-          title: Container(),
-        ),
+        //       // Navigator.popAndPushNamed(context, 'video',
+        //       //     arguments: videos.first.key);
+        //     },
+        //   ),
+        //   title: Container(),
+        // ),
         BottomNavigationBarItem(
           icon: IconButton(
             icon: Icon(
               Icons.add,
               size: 40,
-              color: Theme.of(context).primaryColor,
+              color: Colors.black,
             ),
             onPressed: () {
               addMovieDB(context);
@@ -245,7 +245,7 @@ Widget _crearAppbar(Pelicula pelicula,BuildContext context) {
             icon: Icon(
               Icons.share,
               size: 40.0,
-              color: Theme.of(context).primaryColor,
+              color: Colors.black,
             ),
             onPressed: () {
               Pelicula pelicula = ModalRoute.of(context).settings.arguments;
