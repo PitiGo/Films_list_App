@@ -3,8 +3,8 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:MyFilms/locale/locales.dart';
 import 'package:MyFilms/src/models/actores_model.dart';
 import 'package:MyFilms/src/models/pelicula_model.dart';
-import 'package:MyFilms/src/models/videos_model.dart';
-import 'package:MyFilms/src/pages/video_player_page.dart';
+// import 'package:MyFilms/src/models/videos_model.dart';
+// import 'package:MyFilms/src/pages/video_player_page.dart';
 import 'package:MyFilms/src/providers/db_provider.dart';
 import 'package:MyFilms/src/providers/peliculas_providers.dart';
 // import 'package:share/share.dart';
@@ -85,10 +85,10 @@ Widget _crearAppbar(Pelicula pelicula,BuildContext context) {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(pelicula.title,
-                    style: Theme.of(context).textTheme.title,
+                    style: Theme.of(context).textTheme.headline6,
                     overflow: TextOverflow.ellipsis),
                 Text(pelicula.originalTitle,
-                    style: Theme.of(context).textTheme.subhead,
+                    style: Theme.of(context).textTheme.subtitle1,
                     overflow: TextOverflow.ellipsis),
                 Row(
                   children: <Widget>[
@@ -98,7 +98,7 @@ Widget _crearAppbar(Pelicula pelicula,BuildContext context) {
                     ),
                     Text(
                       pelicula.voteAverage.toString(),
-                      style: Theme.of(context).textTheme.subhead,
+                      style: Theme.of(context).textTheme.subtitle1,
                     ),
                   ],
                 )

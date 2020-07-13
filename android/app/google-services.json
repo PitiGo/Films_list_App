@@ -9,7 +9,7 @@
         "client_info": {
             "mobilesdk_app_id": "1:332257047082:android:3e2658f9f5c6020e2a0953",
             "android_client_info": {
-                "package_name": "com.app.MyFilms"
+                "package_name": "com.app.My_Films"
             }
         },
         "oauth_client": [{
@@ -22,11 +22,20 @@
         "services": {
             "appinvite_service": {
                 "other_platform_oauth_client": [{
-                    "client_id": "332257047082-0p8di8qo0os0r0hj3vfcjo4qh1s2s8sp.apps.googleusercontent.com",
-                    "client_type": 3
-                }]
+                        "client_id": "332257047082-0p8di8qo0os0r0hj3vfcjo4qh1s2s8sp.apps.googleusercontent.com",
+                        "client_type": 3
+                    },
+                    {
+                        "client_id": "332257047082-rj15105ihftf45tgeq0mh39vkv92jqih.apps.googleusercontent.com",
+                        "client_type": 2,
+                        "ios_info": {
+                            "bundle_id": "com.app.My_Films"
+                        }
+                    }
+                ]
             }
-        }
+        },
+        "admob_app_id": "ca-app-pub-5709755665172014~1447065348"
     }],
     "configuration_version": "1"
 }

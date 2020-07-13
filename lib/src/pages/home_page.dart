@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
   
   int currentindex = 0;
 
-  InterstitialAd _interstitialAd;
+  InterstitialAd interstitialAd;
 
   static const MobileAdTargetingInfo mobileAdTargetingInfo =
       MobileAdTargetingInfo(
@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(left: 20.0),
             child: Text(
               AppLocalizations.of(context).popular,
-              style: Theme.of(context).textTheme.subhead,
+              style: Theme.of(context).textTheme.subtitle1,
             ),
           ),
           SizedBox(
@@ -187,7 +187,7 @@ class _HomePageState extends State<HomePage> {
             padding: EdgeInsets.only(left: 20.0),
             child: Text(
               'Top rated',
-              style: Theme.of(context).textTheme.subhead,
+              style: Theme.of(context).textTheme.subtitle1,
             ),
           ),
           SizedBox(
@@ -234,7 +234,7 @@ class _HomePageState extends State<HomePage> {
       onTap: (index) {
         currentindex = index;
         if (currentindex == 1) {
-          _interstitialAd = createInterstitialAd()
+          interstitialAd = createInterstitialAd()
             ..load()
             ..show();
         }
